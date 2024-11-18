@@ -1,0 +1,6 @@
+
+export const formatCurrency = (amount) => {
+    return amount.toLocaleString('es-CO', { style: 'currency', currency: 'COP', minimumFractionDigits: 0, maximumFractionDigits:0 });
+  };
+
+  
