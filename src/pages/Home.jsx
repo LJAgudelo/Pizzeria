@@ -16,7 +16,7 @@ export default function Home() {
                     name="Española"
                     price={(6950)}
                     ingredients={["mozzarella, ", "gorgonzola, ", "parmesano, ", "provolone, "]}
-                    img="https://scontent.feoh1-1.fna.fbcdn.net/v/t39.30808-6/259829204_6916288335062854_857802547317839997_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeGgQywkwvkwsPXrDPyv7IPG4W50bpJCytbhbnRukkLK1uP3fn95vRiTUG4Ntsdiyy9GSUrSgZsudZK0X7VbkADM&_nc_ohc=fns6FkNy2lEQ7kNvgGXM2eV&_nc_zt=23&_nc_ht=scontent.feoh1-1.fna&_nc_gid=A2459FmrcAW4WvFcwrt3yu4&oh=00_AYC9BG28cq6or8t6Wk3qC_HT8a4P7jIc5xkN5OTnb1Ia-w&oe=67406145"
+                    img="https://scontent.feoh1-1.fna.fbcdn.net/v/t39.30808-6/259829204_6916288335062854_857802547317839997_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=3a1ebe&_nc_eui2=AeGgQywkwvkwsPXrDPyv7IPG4W50bpJCytbhbnRukkLK1uP3fn95vRiTUG4Ntsdiyy9GSUrSgZsudZK0X7VbkADM&_nc_ohc=tlQW9oTx6JYQ7kNvgEK1SFm&_nc_zt=23&_nc_ht=scontent.feoh1-1.fna&_nc_gid=AOK6viY5OLHPA06hn7GLWm9&oh=00_AYDOu3x-oeKlc0pY2DjXPdrCXIYAweb_yue-4yiTPBXbRA&oe=67492B45"
                 />
                 <CardPizza
                     name="Pepperoni"
