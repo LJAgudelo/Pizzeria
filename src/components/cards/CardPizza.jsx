@@ -1,7 +1,7 @@
 import { PiEyesFill } from "react-icons/pi";
 import { FaCartArrowDown } from "react-icons/fa";
 
-export default function CardPizza({ name, price, ingredients, img }) {
+export default function CardPizza({ name, price, ingredients, img, desc }) {
     return (
         <div className="flex justify-center items-center bg-gray-100  ">
             <div className="max-w-sm bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden">
@@ -16,6 +16,9 @@ export default function CardPizza({ name, price, ingredients, img }) {
                 {/* Lista de ingredientes */}
                 <ul className="border-t border-gray-200 p-4 bg-gray-50">
                     <li className="text-gray-600 text-sm">Ingredientes: {ingredients}</li>
+                </ul>
+                <ul className="border-t border-gray-200 p-4 bg-gray-50">
+                    <li className="text-gray-600 text-sm">Descripción de la pizza: {desc}</li>
                 </ul>
 
                 {/* Cuerpo de la tarjeta  Precio y botones */}
