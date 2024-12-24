@@ -1,29 +1,24 @@
-
 import './App.css'
+import { Routes, Route } from 'react-router-dom'
+import routes from './routes/routes'
 import Navbar from './components/layout/Navbar'
-import Home from './pages/Home'
 import Footer from './components/layout/Footer'
-import Pizza from './pages/Pizza'
-import Register from './components/cards/Register'
-import Login from './components/cards/Login'
-import Review from './components/cards/Review'
-import Cart from './pages/Cart'
+
 
 function App() {
-
-
-
   return (
     <>
       <Navbar />
-      {/*<Home />
-      <Register />
-      <Login />
-      <Review />
-      
-      <Cart />*/}
-      <Pizza />
+      <main className='flex-grow'>
+        <Routes>
+          {routes.map(({ path, element }) => (
+            <Route key={path} path={path} element={element} />
+          ))}
+        </Routes>
+
+      </main>
       <Footer />
+
 
     </>
   )
