@@ -4,13 +4,15 @@ import App from './App.jsx'
 import './index.css'
 import 'react-toastify/dist/ReactToastify.css';
 import { BrowserRouter } from 'react-router-dom';
+import { UserProvider } from './context/userContext.jsx';
 
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
     <BrowserRouter>
-      <App />
+      <UserProvider>
+        <App />
+      </UserProvider>
     </BrowserRouter>
-
-  </React.StrictMode>,
+  </React.StrictMode>
 )

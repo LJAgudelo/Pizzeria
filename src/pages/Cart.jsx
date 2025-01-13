@@ -3,9 +3,10 @@ import Header from "../components/layout/Header"
 import { pizzasCart } from ".././data/data"
 import { formatCurrency } from "../utils/format"
 import { useState } from "react"
+import { userUser } from "../context/userContext"
 
 const Cart = () => {
-
+    const { token } = userUser()
     const [total, setTotal] = useState(0)
 
     const calcularTotal = (subtotal) => {
@@ -32,7 +33,10 @@ const Cart = () => {
             ))}
             <div className="flex items-center justify-between m-4 flex-col">
                 <label>Total: {(formatCurrency(total))} </label>
-                <button className="flex items-center  px-2.5 py-1 bg-gray-800 text-white rounded-lg hover:bg-gray-700">
+                <button
+                    disabled={token}
+                    className={`${token ? "flex items-center  px-2.5 py-1 bg-gray-800 text-white rounded-lg hover:bg-gray-700" : "flex items-center  px-2.5 py-1 bg-gray-400 text-white rounded-lg"}`}
+                >
                     Pagar
                 </button>
             </div>

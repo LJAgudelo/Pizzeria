@@ -22,7 +22,7 @@ export default function Home() {
                 {pizzas.map((pizza) => (
                     <div key={pizza.id} className="flex flex-col items-center justify-between w-full h-full p-4 bg-white shadow-lg rounded-lg">
                         <CardPizza
-
+                            id={pizza.id}
                             name={pizza.name}
                             price={pizza.price}
                             ingredients={pizza.ingredients}

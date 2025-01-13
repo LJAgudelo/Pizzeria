@@ -1,18 +1,20 @@
 import { useEffect, useState } from "react"
+import { useParams } from "react-router"
 import Header from "../components/layout/Header"
 import CardPizza from "../components/cards/CardPizza"
 
 const Pizza = () => {
-    const [pizza, setPizza] = useState([])
+    const [pizza, setPizza] = useState([]);
+    const { id } = useParams() // Lee el Id que se entrega desde la Url
 
     useEffect(() => {
-        fetch("http://localhost:5000/api/pizzas/p001")
+        fetch(`http://localhost:5000/api/pizzas/${id}`)
             .then((res) => res.json())
             .then((data) => {
                 setPizza([data])
             })
 
-    }, [])
+    }, [id])
 
     return (
         <>
@@ -22,7 +24,6 @@ const Pizza = () => {
                     <div className="flex flex-col items-center p-3 bg-white shadow-lg rounded-lg"
                         key={pIndividual.id}>
                         <CardPizza
-
                             name={pIndividual.name}
                             price={pIndividual.price}
                             ingredients={pIndividual.ingredients}

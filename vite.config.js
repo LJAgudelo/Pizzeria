@@ -5,4 +5,7 @@ import react from "@vitejs/plugin-react";
 export default defineConfig({
   base: "/Pizzeria",
   plugins: [react()],
+  /*   server: {
+    historyApiFallback: true, // Redirige todas las rutas al index.html
+  }, */
 });

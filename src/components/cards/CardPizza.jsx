@@ -1,7 +1,9 @@
 import { PiEyesFill } from "react-icons/pi";
 import { FaCartArrowDown } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
-export default function CardPizza({ name, price, ingredients, img, desc }) {
+
+export default function CardPizza({ id, name, price, ingredients, img, desc }) {
     return (
         <div className="flex justify-center items-center bg-gray-100  ">
             <div className="max-w-sm bg-white border border-gray-300 rounded-lg shadow-md overflow-hidden">
@@ -26,9 +28,9 @@ export default function CardPizza({ name, price, ingredients, img, desc }) {
                     <h4 className="text-lg font-semibold text-gray-800">Precio: {price}</h4>
                     <div className="flex items-center justify-center gap-4 mt-4">
                         {/* Botón Ver Más */}
-                        <button className="flex items-center gap-2 px-4 py-2 border border-gray-400 text-gray-600 rounded-lg hover:bg-gray-100">
+                        <Link to={`/pizzas/${id}`} className="flex items-center gap-2 px-4 py-2 border border-gray-400 text-gray-600 rounded-lg hover:bg-gray-100">
                             Ver Más <PiEyesFill />
-                        </button>
+                        </Link>
                         {/* Botón Añadir */}
                         <button className="flex items-center gap-2 px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700">
                             Añadir <FaCartArrowDown />

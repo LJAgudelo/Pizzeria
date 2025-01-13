@@ -1,8 +1,6 @@
 import { Disclosure, DisclosureButton, DisclosurePanel } from '@headlessui/react';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
-import { LiaPizzaSliceSolid } from "react-icons/lia";
 import { ImProfile } from "react-icons/im";
-import { FiLogOut } from "react-icons/fi";
 import { RiLoginBoxFill } from "react-icons/ri";
 import { GiArchiveRegister } from "react-icons/gi";
 import { TbCashRegister } from "react-icons/tb";
@@ -10,24 +8,36 @@ import { formatCurrency } from '../../utils/format';
 import { FaCartShopping } from "react-icons/fa6";
 import { Link } from "react-router-dom";
 import { IoHome } from "react-icons/io5";
+import { userUser } from '../../context/userContext';
+import { BiLogOut } from "react-icons/bi";
 
 const total = 25000;
 
-
-const navigation = [
-    { name: 'Home', to: '/Home', icon: <IoHome />, current: true },
-    { name: 'Register', to: '/register', icon: <GiArchiveRegister />, current: false },
-    { name: 'Login', to: '/login', icon: <RiLoginBoxFill />, current: false },
-    { name: 'Cart', to: '/cart', icon: <FaCartShopping /> },
-    { name: 'Profile', to: '/profile', icon: <ImProfile />, current: false },
-    { name: `Total: ${formatCurrency(total)}`, to: '/cart', icon: <TbCashRegister />, current: false },
-];
-
-function classNames(...classes) {
-    return classes.filter(Boolean).join(' ');
-}
-
 export default function Navbar() {
+    const { token, logout } = userUser();
+
+    // Definir las opciones de navegación basadas en el estado del token
+    const navigation = token
+        ? [
+            { name: 'Home', to: '/Home', icon: <IoHome />, current: true },
+            { name: 'Cart', to: '/cart', icon: <FaCartShopping /> },
+            { name: 'Profile', to: '/profile', icon: <ImProfile />, current: false },
+            { name: 'Logout', to: '#', icon: <BiLogOut />, current: false, onClick: logout },
+            { name: `Total: ${formatCurrency(total)}`, to: '/cart', icon: <TbCashRegister />, current: false },
+
+        ]
+        : [
+            { name: 'Home', to: '/Home', icon: <IoHome />, current: true },
+            { name: 'Register', to: '/register', icon: <GiArchiveRegister />, current: false },
+            { name: 'Login', to: '/login', icon: <RiLoginBoxFill />, current: false },
+            { name: `Total: ${formatCurrency(total)}`, to: '/cart', icon: <TbCashRegister />, current: false },
+
+        ];
+
+    function classNames(...classes) {
+        return classes.filter(Boolean).join(' ');
+    }
+
     return (
         <Disclosure as="nav" className="bg-black">
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -54,6 +64,7 @@ export default function Navbar() {
                                     <Link
                                         key={item.name}
                                         to={item.to}
+                                        onClick={item.onClick}
                                         aria-current={item.current ? 'page' : undefined}
                                         className={classNames(
                                             item.current ? 'bg-gray-900 text-white' : 'text-gray-300 hover:bg-gray-800 hover:text-white',
