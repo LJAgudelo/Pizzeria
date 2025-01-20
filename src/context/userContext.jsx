@@ -1,12 +1,11 @@
 import React, { createContext, useContext, useState } from "react";
 
-// Crear el contexto con un valor predeterminado
+
 const userContext = createContext();
 
-// Proveedor de contexto
 export const UserProvider = ({ children }) => {
-    const [token, setToken] = useState(true);  // Inicializa el estado de token
-    const [logout, setLogout] = useState(() => () => setToken(null));  // Función de logout
+    const [token, setToken] = useState(true);
+    const [logout, setLogout] = useState(() => () => setToken(null));
 
     return (
         <userContext.Provider value={{ token, logout }}>

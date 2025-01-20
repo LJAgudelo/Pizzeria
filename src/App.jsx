@@ -4,6 +4,7 @@ import routes from './routes/routes';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Pizza from './pages/Pizza'; // Página para ver detalles de la pizza
+import Cart from './pages/Cart';
 
 function App() {
   return (
@@ -19,6 +20,7 @@ function App() {
         </Routes>
       </main>
       <Footer />
+
     </>
   );
 }
